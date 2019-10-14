@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    <h1>Register for Frosh IMs</h1>
+    <form action="/register" method="post">
+        <select name="Tier">
+                <option disabled selected value="">Tier</option>
+                <option value="Apley Court">1</option>
+                <option value="Canaday">2</option>
+                <option value="Grays">3</option>
+                <option value="Greenough">4</option>
+        </select>
+        <input autocomplete="off" autofocus name="password" placeholder="password" type="text">
+
+        <input type="submit" value="Login">
+    </form>
+
+    <script>
+
+        document.querySelector('form').onsubmit = function() {
+            if (!document.querySelector('input').value) {
+                alert('You must provide your passcode');
+                return false;
+            }
+            else if (!document.querySelector('select').value) {
+                alert('You must provide your tier');
+                return false;
+            }
+            return true;
+        };
+
+    </script>
+
+{% endblock %}
